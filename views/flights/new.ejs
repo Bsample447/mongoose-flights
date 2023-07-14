@@ -1,0 +1,19 @@
+<!-- new.ejs -->
+<% include ../partials/header %>
+
+<h1>New Flight</h1>
+
+<form action="/flights" method="post">
+  <!-- Form fields for creating a new flight -->
+  <label for="airline">Airline:</label>
+  <input type="text" name="airline" required>
+  
+  <label for="destination">Destination:</label>
+  <input type="text" name="destination" required>
+  
+  <!-- Add more form fields as needed -->
+
+  <button type="submit">Create Flight</button>
+</form>
+
+<% include ../partials/footer %>

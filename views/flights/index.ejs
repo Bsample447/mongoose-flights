@@ -1,0 +1,16 @@
+<!-- index.ejs -->
+<% include ../partials/header %>
+
+<h1>Flights</h1>
+
+<% if (flights.length === 0) { %>
+  <p>No flights found.</p>
+<% } else { %>
+  <ul>
+    <% flights.forEach((flight) => { %>
+      <li><%= flight.airline %> - <%= flight.destination %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<% include ../partials/footer %>

@@ -1,0 +1,16 @@
+<!-- index.ejs -->
+<% include ../partials/header %>
+
+<h1>Tickets</h1>
+
+<% if (tickets.length === 0) { %>
+  <p>No tickets found.</p>
+<% } else { %>
+  <ul>
+    <% tickets.forEach((ticket) => { %>
+      <li><%= ticket.passengerName %> - <%= ticket.seatNumber %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<% include ../partials/footer %>
