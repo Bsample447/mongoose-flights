@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const destinationsController = require('../controllers/destinations');
+const destinationsController = require('../controllers/destination');
 
 // Example route to get all destinations
 router.get('/', destinationsController.getAllDestinations);
