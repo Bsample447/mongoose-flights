@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// Example root route
+// route
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { title: 'mongoose-flights'});
 });
 
-// Other common routes...
+// Other routes...
 
 module.exports = router;
