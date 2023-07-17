@@ -1,8 +1,14 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// const destinationSchema = new mongoose.Schema({
-//   name: { type: String, required: true },
-//   // other destination properties...
-// });
+const Schema = mongoose.Schema;
 
-// module.exports = mongoose.model('Destination', destinationSchema);
+const destinationSchema = new Schema({
+  airport: {
+    type: String,
+    enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
+    required: true,
+  },
+  arrival: { type: Date, required: true },
+});
+
+module.exports = mongoose.model('Destination', destinationSchema);

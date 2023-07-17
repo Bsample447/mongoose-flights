@@ -1,24 +1,17 @@
-// const Destination = require('../models/destination');
+const Flight = require('../models/flight');
 
-// //function to get all destinations
-// exports.getAllDestinations = async (req, res) => {
-//   try {
-//     const destinations = await Destination.find();
-//     res.json(destinations);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// };
+async function create(req, res) {
+  const flight = await Flight.findById(req.params.id);
+  flight.destinations.push(req.body);
+  try {
+    await flight.save();
+  } catch (err) {
+    console.log(err);
+  }
 
-// //function to create a new destination
-// exports.createDestination = async (req, res) => {
-//   try {
-//     const newDestination = new Destination(req.body);
-//     const savedDestination = await newDestination.save();
-//     res.json(savedDestination);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// };
+  res.redirect(`/flights/${flight._id}`);
+}
 
-// // Other destination-related functions...
+module.exports = {
+  create,
+};

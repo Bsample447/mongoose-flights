@@ -1,14 +1,7 @@
-// const express = require('express');
-// const router = express.Router();
+const express = require('express');
+const router = express.Router();
+const destinationsCtrl = require('../controllers/destinations');
 
-// const destinationsController = require('../controllers/destination');
+router.post('/flights/:id/destinations', destinationsCtrl.create);
 
-// // route to get all destinations
-// router.get('/', destinationsController.getAllDestinations);
-
-// // route to create a new destination
-// router.post('/', destinationsController.createDestination);
-
-// // Other destination routes...
-
-// module.exports = router;
+module.exports = router;
