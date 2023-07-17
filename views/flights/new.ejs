@@ -1,19 +1,31 @@
-<!-- new.ejs -->
-<% include ../partials/header %>
+<%- include('../partials/header') %>
 
-<h1>New Flight</h1>
+<h2>Enter a New Flight</h2>
+<form action="/flights" method="POST">
+  <label
+    >Airline
+    <select name="airline">
+      <option hidden="true"></option>
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="PG-United">United</option>
+    </select>
+  </label>
+  <label
+    >Airport
+    <select name="airport">
+      <option hidden="true"></option>
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label>
+  <label>Flight Number: <input type="number" name="flightNo" /></label><br />
+  <label>Depart (Date) <input type="date" name="depart" /></label><br />
 
-<form action="/flights" method="post">
-  <!-- Form fields for creating a new flight -->
-  <label for="airline">Airline:</label>
-  <input type="text" name="airline" required>
-  
-  <label for="destination">Destination:</label>
-  <input type="text" name="destination" required>
-  
-  <!-- Add more form fields as needed -->
-
-  <button type="submit">Create Flight</button>
+  <button type="submit">Add Flight</button>
 </form>
 
-<% include ../partials/footer %>
+<%- include('../partials/footer') %>

@@ -1,14 +1,14 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-const destinationsController = require('../controllers/destination');
+// const destinationsController = require('../controllers/destination');
 
-// route to get all destinations
-router.get('/', destinationsController.getAllDestinations);
+// // route to get all destinations
+// router.get('/', destinationsController.getAllDestinations);
 
-// route to create a new destination
-router.post('/', destinationsController.createDestination);
+// // route to create a new destination
+// router.post('/', destinationsController.createDestination);
 
-// Other destination routes...
+// // Other destination routes...
 
-module.exports = router;
+// module.exports = router;

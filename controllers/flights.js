@@ -1,24 +1,27 @@
-const Flight = require('../models/flight');
+const Flight = require("../models/flight");
 
-// function to get all flights
-exports.getAllFlights = async (req, res) => {
+function newFlight(req, res) {
+  res.render("flights/new", { error: "" });
+}
+
+async function create(req, res) {
   try {
-    const flights = await Flight.find();
-    res.json(flights);
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+    await Flight.create(req.body);
+    res.redirect("/flights");
+  } catch (err) {
+    console.log(err);
+    res.render("flights/new", { errorMsg: err.message });
   }
-};
+}
 
-// function to create a new flight
-exports.createFlight = async (req, res) => {
-  try {
-    const newFlight = new Flight(req.body);
-    const savedFlight = await newFlight.save();
-    res.json(savedFlight);
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
+async function index(req, res) {
+  res.render("flights/index", {
+    flights: await Flight.find(),
+  });
+}
 
-// Other flight-related functions...
+module.exports = {
+  new: newFlight,
+  create,
+  index,
+};

@@ -1,14 +1,12 @@
-const express = require('express');
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
 
-const flightsController = require('../controllers/flights');
+const flightCtrl = require("../controllers/flights");
 
-// route to get all flights
-router.get('/', flightsController.getAllFlights);
+router.get("/new", flightCtrl.new);
 
-// route to create a new flight
-router.post('/', flightsController.createFlight);
+router.post("/", flightCtrl.create);
 
-// Other flight routes...
+router.get("/", flightCtrl.index);
 
 module.exports = router;

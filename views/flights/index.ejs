@@ -1,16 +1,25 @@
-<!-- index.ejs -->
-<% include ../partials/header %>
+<%- include('../partials/header') %>
 
-<h1>Flights</h1>
+<h2>Flight List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Airport</th>
+      <th>Flight Number</th>
+      <th>Departure Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.forEach(function(f) { %>
+    <tr>
+      <td><%= f.airline %></td>
+      <td><%= f.airport %></td>
+      <td><%= f.flightNo %></td>
+      <td><%= f.depart %></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
 
-<% if (flights.length === 0) { %>
-  <p>No flights found.</p>
-<% } else { %>
-  <ul>
-    <% flights.forEach((flight) => { %>
-      <li><%= flight.airline %> - <%= flight.destination %></li>
-    <% }) %>
-  </ul>
-<% } %>
-
-<% include ../partials/footer %>
+<%- include('../partials/footer') %>
